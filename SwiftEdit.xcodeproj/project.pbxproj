@@ -11,6 +11,12 @@
 		CF88F8A3277B400000000017 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000012 /* ContentView.swift */; };
 		CF88F8A3277B400000000018 /* SwiftEditDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000013 /* SwiftEditDocument.swift */; };
 		CF88F8A3277B400000000019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000014 /* Assets.xcassets */; };
+		CF88F8A3277B400000000120 /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = CF88F8A3277B400000000110 /* MLXLLM */; };
+		CF88F8A3277B400000000121 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = CF88F8A3277B400000000111 /* MLXLMCommon */; };
+		CF88F8A3277B400000000123 /* Tokenizers in Frameworks */ = {isa = PBXBuildFile; productRef = CF88F8A3277B400000000113 /* Tokenizers */; };
+		CF88F8A3277B400000000140 /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000130 /* LLMService.swift */; };
+		CF88F8A3277B400000000141 /* LLMPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000131 /* LLMPanelView.swift */; };
+		CF88F8A3277B400000000142 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000132 /* ModelPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +27,9 @@
 		CF88F8A3277B400000000014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF88F8A3277B400000000015 /* SwiftEdit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftEdit.entitlements; sourceTree = "<group>"; };
 		CF88F8A3277B40000000001A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF88F8A3277B400000000130 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
+		CF88F8A3277B400000000131 /* LLMPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMPanelView.swift; sourceTree = "<group>"; };
+		CF88F8A3277B400000000132 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF88F8A3277B400000000120 /* MLXLLM in Frameworks */,
+				CF88F8A3277B400000000121 /* MLXLMCommon in Frameworks */,
+				CF88F8A3277B400000000123 /* Tokenizers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +60,9 @@
 				CF88F8A3277B400000000011 /* SwiftEditApp.swift */,
 				CF88F8A3277B400000000012 /* ContentView.swift */,
 				CF88F8A3277B400000000013 /* SwiftEditDocument.swift */,
+				CF88F8A3277B400000000130 /* LLMService.swift */,
+				CF88F8A3277B400000000131 /* LLMPanelView.swift */,
+				CF88F8A3277B400000000132 /* ModelPickerView.swift */,
 				CF88F8A3277B40000000001A /* Info.plist */,
 				CF88F8A3277B400000000015 /* SwiftEdit.entitlements */,
 				CF88F8A3277B400000000014 /* Assets.xcassets */,
@@ -79,6 +94,11 @@
 			dependencies = (
 			);
 			name = SwiftEdit;
+			packageProductDependencies = (
+				CF88F8A3277B400000000110 /* MLXLLM */,
+				CF88F8A3277B400000000111 /* MLXLMCommon */,
+				CF88F8A3277B400000000113 /* Tokenizers */,
+			);
 			productName = SwiftEdit;
 			productReference = CF88F8A3277B400000000010 /* SwiftEdit.app */;
 			productType = "com.apple.product-type.application";
@@ -107,6 +127,10 @@
 				Base,
 			);
 			mainGroup = CF88F8A3277B400000000020;
+			packageReferences = (
+				CF88F8A3277B400000000100 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */,
+				CF88F8A3277B400000000101 /* XCRemoteSwiftPackageReference "swift-transformers" */,
+			);
 			productRefGroup = CF88F8A3277B400000000003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +159,9 @@
 				CF88F8A3277B400000000016 /* SwiftEditApp.swift in Sources */,
 				CF88F8A3277B400000000017 /* ContentView.swift in Sources */,
 				CF88F8A3277B400000000018 /* SwiftEditDocument.swift in Sources */,
+				CF88F8A3277B400000000140 /* LLMService.swift in Sources */,
+				CF88F8A3277B400000000141 /* LLMPanelView.swift in Sources */,
+				CF88F8A3277B400000000142 /* ModelPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +344,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF88F8A3277B400000000100 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "3.31.3";
+			};
+		};
+		CF88F8A3277B400000000101 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF88F8A3277B400000000110 /* MLXLLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF88F8A3277B400000000100 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLLM;
+		};
+		CF88F8A3277B400000000111 /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF88F8A3277B400000000100 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+		CF88F8A3277B400000000113 /* Tokenizers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF88F8A3277B400000000101 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Tokenizers;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 	};
 	rootObject = CF88F8A3277B400000000001 /* Project object */;
