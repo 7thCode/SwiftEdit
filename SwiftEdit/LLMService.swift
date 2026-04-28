@@ -51,7 +51,7 @@ private struct TokenizerBridge: MLXLMCommon.Tokenizer {
 
 private struct LocalTokenizerLoader: MLXLMCommon.TokenizerLoader {
     func load(from directory: URL) async throws -> any MLXLMCommon.Tokenizer {
-        let upstream = try await Tokenizers.AutoTokenizer.from(modelFolder: directory)
+        let upstream = try await Tokenizers.AutoTokenizer.from(modelFolder: directory, strict: false)
         return TokenizerBridge(upstream)
     }
 }
@@ -79,10 +79,12 @@ final class LLMService {
     func loadModel(from url: URL) async {
         modelState = .loading
         do {
-            let container = try await LLMModelFactory.shared.loadContainer(
-                from: url,
-                using: LocalTokenizerLoader()
-            )
+                let container = try await Task.detached(priority: .userInitiated) {
+                try await LLMModelFactory.shared.loadContainer(
+                    from: url,
+                    using: LocalTokenizerLoader()
+                )
+            }.value
             modelContainer = container
             modelState = .loaded(url.lastPathComponent)
         } catch {
@@ -99,10 +101,12 @@ final class LLMService {
         guard let container = modelContainer, !isGenerating else { return }
 
         isGenerating = true
-        generationTask = Task {
+        generationTask = Task.detached(priority: .userInitiated) { [weak self] in
             defer {
-                isGenerating = false
-                onComplete()
+                Task { @MainActor in
+                    self?.isGenerating = false
+                    onComplete()
+                }
             }
             do {
                 let messages: [[String: any Sendable]] = [

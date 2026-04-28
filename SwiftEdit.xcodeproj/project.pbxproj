@@ -17,6 +17,9 @@
 		CF88F8A3277B400000000140 /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000130 /* LLMService.swift */; };
 		CF88F8A3277B400000000141 /* LLMPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000131 /* LLMPanelView.swift */; };
 		CF88F8A3277B400000000142 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000132 /* ModelPickerView.swift */; };
+		CF88F8A3277B400000000124 /* Hub in Frameworks */ = {isa = PBXBuildFile; productRef = CF88F8A3277B400000000114 /* Hub */; };
+		CF88F8A3277B400000000143 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000133 /* ModelStore.swift */; };
+		CF88F8A3277B400000000144 /* ModelStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88F8A3277B400000000134 /* ModelStoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,8 @@
 		CF88F8A3277B400000000130 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
 		CF88F8A3277B400000000131 /* LLMPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMPanelView.swift; sourceTree = "<group>"; };
 		CF88F8A3277B400000000132 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
+		CF88F8A3277B400000000133 /* ModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
+		CF88F8A3277B400000000134 /* ModelStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +45,7 @@
 				CF88F8A3277B400000000120 /* MLXLLM in Frameworks */,
 				CF88F8A3277B400000000121 /* MLXLMCommon in Frameworks */,
 				CF88F8A3277B400000000123 /* Tokenizers in Frameworks */,
+				CF88F8A3277B400000000124 /* Hub in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,8 @@
 				CF88F8A3277B400000000130 /* LLMService.swift */,
 				CF88F8A3277B400000000131 /* LLMPanelView.swift */,
 				CF88F8A3277B400000000132 /* ModelPickerView.swift */,
+				CF88F8A3277B400000000133 /* ModelStore.swift */,
+				CF88F8A3277B400000000134 /* ModelStoreView.swift */,
 				CF88F8A3277B40000000001A /* Info.plist */,
 				CF88F8A3277B400000000015 /* SwiftEdit.entitlements */,
 				CF88F8A3277B400000000014 /* Assets.xcassets */,
@@ -98,6 +106,7 @@
 				CF88F8A3277B400000000110 /* MLXLLM */,
 				CF88F8A3277B400000000111 /* MLXLMCommon */,
 				CF88F8A3277B400000000113 /* Tokenizers */,
+				CF88F8A3277B400000000114 /* Hub */,
 			);
 			productName = SwiftEdit;
 			productReference = CF88F8A3277B400000000010 /* SwiftEdit.app */;
@@ -162,6 +171,8 @@
 				CF88F8A3277B400000000140 /* LLMService.swift in Sources */,
 				CF88F8A3277B400000000141 /* LLMPanelView.swift in Sources */,
 				CF88F8A3277B400000000142 /* ModelPickerView.swift in Sources */,
+				CF88F8A3277B400000000143 /* ModelStore.swift in Sources */,
+				CF88F8A3277B400000000144 /* ModelStoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +390,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF88F8A3277B400000000101 /* XCRemoteSwiftPackageReference "swift-transformers" */;
 			productName = Tokenizers;
+		};
+		CF88F8A3277B400000000114 /* Hub */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF88F8A3277B400000000101 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Hub;
 		};
 /* End XCSwiftPackageProductDependency section */
 

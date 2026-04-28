@@ -3,20 +3,46 @@ import AppKit
 
 struct ModelPickerView: View {
     @Environment(LLMService.self) private var llmService
+    @Environment(ModelStore.self) private var modelStore
+    @Environment(\.dismiss) private var dismiss
     @AppStorage("lastModelPath") private var lastModelPath: String = ""
-    @State private var isPresented = false
+    @State private var showStore = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            statusView
-
-            Button("モデルを選択...") {
-                selectModel()
+            HStack {
+                statusView
+                Spacer()
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.small)
+
+            HStack(spacing: 8) {
+                Button("モデルストア") {
+                    showStore = true
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.small)
+
+                Button("フォルダを選択...") {
+                    selectModel()
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
+            }
         }
         .padding()
+        .sheet(isPresented: $showStore) {
+            ModelStoreView()
+                .environment(modelStore)
+                .environment(llmService)
+        }
     }
 
     @ViewBuilder

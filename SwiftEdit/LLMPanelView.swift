@@ -13,6 +13,7 @@ struct ChatMessage: Identifiable {
 struct LLMPanelView: View {
     let documentText: String
     @Environment(LLMService.self) private var llmService
+    @Environment(ModelStore.self) private var modelStore
     @State private var messages: [ChatMessage] = []
     @State private var inputText: String = ""
     @State private var showModelPicker = false
@@ -29,7 +30,8 @@ struct LLMPanelView: View {
         .sheet(isPresented: $showModelPicker) {
             ModelPickerView()
                 .environment(llmService)
-                .frame(width: 360, height: 160)
+                .environment(modelStore)
+                .frame(width: 360, height: 180)
         }
     }
 
